@@ -1,11 +1,9 @@
 import React from 'react';
+import CurrentTime from './containers/CurrentTime';
 
 function App() {
   return (
-    <div>
-      <h1>Welcome Marcus</h1>
-      <p>Let's code together</p>
-    </div>
+    <div><CurrentTime /></div>
   );
 }
 

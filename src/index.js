@@ -3,4 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+
+const store = createStore(
+  reducers,
+  applyMiddleware(thunkMiddleware),
+);
+
+ReactDOM.render(
+  <Provider store={ store }>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+// setInterval(() => {
+//   store.dispatch({
+//     type: 'NEW_TIME',
+//     time: new Date()
+//   });
+// }, 1000);
